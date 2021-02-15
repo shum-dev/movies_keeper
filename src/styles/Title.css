@@ -1,0 +1,6 @@
+.Title-container {
+  grid-area: title;
+  font-size: 32px;
+  font-weight: 900;
+  height: 20px;
+}

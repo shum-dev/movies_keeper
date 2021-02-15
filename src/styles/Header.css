@@ -1,0 +1,30 @@
+.Header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 22px;
+  padding: 20px;
+
+  grid-area: header;
+  background-color: var(--header-background-color);
+  /* border: 1px solid blue; */
+  border-radius: 5px;
+}
+
+.Header-link {
+  text-decoration: none;
+  font-weight: 900;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Header-link_active {
+  color: #657EF2;
+}
+
+.Header-link_active svg path {
+  fill: #657EF2;
+}

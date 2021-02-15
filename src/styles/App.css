@@ -1,0 +1,17 @@
+.App-container {
+  padding: 15px;
+  width: 100%;
+  max-width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+
+  display: grid;
+  grid-template-columns: minmax(200px, 300px) minmax(400px, 100%);
+  grid-template-rows: 70px auto 1fr;
+  grid-template-areas:
+    "header header"
+    "title title"
+    "sidebar main";
+  gap: 15px 30px;
+}

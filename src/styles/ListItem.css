@@ -1,0 +1,57 @@
+.ListItem {
+  /* border: 1px solid blue; */
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin-top: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.ListItem:hover {
+  cursor: pointer;
+  box-shadow: 0 0 15px -2px rgba(0,0,0,0.2);
+  transform: scale(1.02);
+}
+
+.ListItem:first-of-type {
+  margin-top: 0;
+}
+
+.ListItem-Poster {
+  height: 100px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.ListItem-Poster:hover {
+  transform: scale(1.5);
+}
+
+.ListItem-RGroup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* width: 200px; */
+  flex: 0 0 200px;
+}
+
+.ListItem-LGroup {
+  display: flex;
+  /* overflow: hidden; */
+  flex: 1;
+  min-width: 0;
+}
+
+.ListItem-Info {
+  min-width: 0px;
+}
+
+.ListItem-Info h3 {
+  /* width: 100px; */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

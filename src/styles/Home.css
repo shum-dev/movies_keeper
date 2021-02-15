@@ -1,0 +1,35 @@
+.Home-container {
+  position: relative;
+}
+
+.Home-list {
+  list-style: none;
+}
+
+.Home-pagination {
+  position: absolute;
+  display: flex;
+  /* border: 1px solid red; */
+  justify-content: flex-end;
+  top: -25px;
+  right: 0;
+  width: 250px;
+}
+
+.Home-pagination button {
+  padding: 3px 10px;
+  border: none;
+  border-radius: 3px;
+  margin: 0 5px;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.Home-pagination button:hover {
+  cursor: pointer;
+  box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);
+  transform: scale(1.02);
+}
+
+.Home-pagination button:focus {
+  outline: none;
+}

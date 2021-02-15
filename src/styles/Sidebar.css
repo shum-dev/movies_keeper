@@ -1,0 +1,59 @@
+.Sidebar-container {
+  padding: 10px;
+  grid-area: sidebar;
+  /* border: 1px solid red; */
+  border-radius: 5px;
+  background-color: var(--sidebar-background-color);
+}
+
+.Sidebar-input {
+  width: 100%;
+  padding: 5px;
+  border: none;
+  font-size: 22px;
+}
+
+.Sidebar-input:focus {
+  border: none;
+  outline: none;
+}
+
+.Sidebar-Checkboxes {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 15px;
+  width: 100px;
+}
+
+.Sidebar-Checkboxes input {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.Sidebar-Checkboxes label {
+  display: inline-block;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.Sidebar-Checkboxes label:hover {
+  cursor: pointer;
+  box-shadow: 0 0 15px -2px rgba(0,0,0,0.2);
+  transform: scale(1.02);
+}
+
+.Sidebar-Checkboxes input[type="radio"]:checked + label {
+  color: #657EF2;
+  background-color: #97dcfc;
+  border-color: #65C5F2;
+}
+
+.Sidebar-Checkboxes input[type="radio"]:focus + label {
+  box-shadow: 0 0 15px -2px rgba(0,0,0,0.2);
+}
