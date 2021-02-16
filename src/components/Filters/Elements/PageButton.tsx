@@ -26,6 +26,7 @@ export const PageButton: FC<PageButtonProps> = ({ name, pageNumber }) => {
       history.push({ search: getSearchString(`${pageNumber}`) });
     }
   };
+
   const style = paramValue
     ? {
         backgroundColor: +paramValue === pageNumber ? '#97dcfc' : 'white',

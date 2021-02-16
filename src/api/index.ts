@@ -42,6 +42,7 @@ type SearchMovieArgs = {
   page: string | null;
 };
 
+//TODO sanitaize all values from user's input
 export const apiSearchMovie = ({ title, type, page }: SearchMovieArgs): Promise<SearchResult> =>
   omdbApi.get('', { params: { s: title, type, page } }).then(({ data }) => data);
 

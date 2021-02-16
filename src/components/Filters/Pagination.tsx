@@ -6,66 +6,47 @@ import { PageButton } from './Elements';
 type PaginationProps = {
   pageSize: number;
   totalResults: number;
+  window?: number;
 };
 
-export const Pagination: FC<PaginationProps> = ({ pageSize, totalResults }) => {
+export const Pagination: FC<PaginationProps> = ({ pageSize, totalResults, window = 5 }) => {
+  const totalPages = Math.ceil(totalResults / pageSize);
+  if (totalPages < 1) return null;
+
   const { search } = useLocation();
   const searchParams = new URLSearchParams(search);
-  const currentPage = searchParams.get('page') || 1;
-  const prevPage = +currentPage - 1 || null;
-  const nextPage = +currentPage + 1 || null;
+  const currentPage = Number(searchParams.get('page')) || 1;
 
-  const totalPages = Math.ceil(totalResults / pageSize);
+  let buttonGroup: JSX.Element[] = [];
 
-  const pages = Array.from({ length: totalPages }, (item, index) => {
-    const pageNumber = index + 1;
+  let maxLeft = currentPage - Math.floor(window / 2);
+  let maxRight = currentPage + Math.floor(window / 2);
 
-    let button;
+  if (maxLeft < 1) {
+    maxLeft = 1;
+    maxRight = window;
+  }
 
-    if (currentPage === 1 && currentPage === pageNumber) {
-      button = {
-        component: <PageButton key={index} name="page" pageNumber={1} />,
-      };
+  if (maxRight > totalPages) {
+    maxLeft = totalPages - (window - 1);
+
+    if (maxLeft < 1) {
+      maxLeft = 1;
     }
+    maxRight = totalPages;
+  }
 
-    if (currentPage && +currentPage !== 1 && prevPage && prevPage !== 1 && pageNumber === 1) {
-      button = {
-        component: <PageButton key={index} name="page" pageNumber={1} />,
-      };
-    }
+  for (let count = maxLeft; count <= maxRight; count++) {
+    buttonGroup.push(<PageButton key={count} name="page" pageNumber={count} />);
+  }
 
-    if (prevPage && prevPage === pageNumber) {
-      button = {
-        component: <PageButton key={index} name="page" pageNumber={pageNumber} />,
-      };
-    }
+  if (currentPage != 1 && maxLeft > 1) {
+    buttonGroup = [<PageButton key={'first'} name="page" pageNumber={1} />, ...buttonGroup];
+  }
 
-    if (currentPage && pageNumber === +currentPage) {
-      button = {
-        component: <PageButton key={index} name="page" pageNumber={pageNumber} />,
-      };
-    }
+  if (currentPage != totalPages && maxRight < totalPages) {
+    buttonGroup.push(<PageButton key={'Last'} name="page" pageNumber={totalPages} />);
+  }
 
-    if (nextPage && nextPage === pageNumber) {
-      button = {
-        component: <PageButton key={index} name="page" pageNumber={pageNumber} />,
-      };
-    }
-
-    if (totalPages && totalPages === pageNumber) {
-      button = {
-        component: <PageButton key={index} name="page" pageNumber={pageNumber} />,
-      };
-    }
-
-    return button;
-  });
-
-  return totalPages > 1 ? (
-    <>
-      {pages.map((page) => {
-        return page ? page.component : null;
-      })}
-    </>
-  ) : null;
+  return <>{buttonGroup}</>;
 };
