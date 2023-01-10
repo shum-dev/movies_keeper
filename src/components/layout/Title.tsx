@@ -5,7 +5,7 @@ import '../../styles/Title.css';
 
 const titlesDict: Record<string, string> = {
   '/': '',
-  '/favorite': 'Starred Words',
+  '/favorite': 'Starred Movies',
 };
 
 export const Title: FC = () => {
