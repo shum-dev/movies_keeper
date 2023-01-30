@@ -1,5 +1,12 @@
 .Home-container {
+  margin-top: 1.5rem;
   position: relative;
+}
+
+@media (min-width: 760px) {
+  .Home-container {
+    margin-top: 0;
+  }
 }
 
 .Home-list {
@@ -9,7 +16,6 @@
 .Home-pagination {
   position: absolute;
   display: flex;
-  /* border: 1px solid red; */
   justify-content: flex-end;
   top: -25px;
   right: 0;
@@ -26,7 +32,7 @@
 
 .Home-pagination button:hover {
   cursor: pointer;
-  box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);
+  box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.2);
   transform: scale(1.02);
 }
 

@@ -47,6 +47,7 @@ export const Input = ({ name, className, placeholder }: InputProps): JSX.Element
           setValue(target.value);
         }}
         value={value}
+        autoFocus
       />
     </div>
   );

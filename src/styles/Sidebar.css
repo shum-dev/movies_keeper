@@ -1,7 +1,6 @@
 .Sidebar-container {
   padding: 10px;
   grid-area: sidebar;
-  /* border: 1px solid red; */
   border-radius: 5px;
   background-color: var(--sidebar-background-color);
 }
@@ -19,12 +18,18 @@
 }
 
 .Sidebar-Checkboxes {
-  height: 150px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   margin-top: 15px;
   width: 100px;
+  gap: 1rem;
+}
+
+@media (min-width: 760px) {
+  .Sidebar-Checkboxes {
+    flex-direction: column;
+  }
 }
 
 .Sidebar-Checkboxes input {
@@ -36,7 +41,7 @@
 .Sidebar-Checkboxes label {
   display: inline-block;
   background-color: white;
-  padding: 10px 20px;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
   transition: box-shadow 0.2s ease-in-out;
@@ -44,16 +49,16 @@
 
 .Sidebar-Checkboxes label:hover {
   cursor: pointer;
-  box-shadow: 0 0 15px -2px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px -2px rgba(0, 0, 0, 0.2);
   transform: scale(1.02);
 }
 
-.Sidebar-Checkboxes input[type="radio"]:checked + label {
-  color: #657EF2;
+.Sidebar-Checkboxes input[type='radio']:checked + label {
+  color: #657ef2;
   background-color: #97dcfc;
-  border-color: #65C5F2;
+  border-color: #65c5f2;
 }
 
-.Sidebar-Checkboxes input[type="radio"]:focus + label {
-  box-shadow: 0 0 15px -2px rgba(0,0,0,0.2);
+.Sidebar-Checkboxes input[type='radio']:focus + label {
+  box-shadow: 0 0 15px -2px rgba(0, 0, 0, 0.2);
 }

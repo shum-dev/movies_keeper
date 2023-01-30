@@ -1,5 +1,5 @@
 .ListItem {
-  /* border: 1px solid blue; */
+  width: 100%;
   background-color: white;
   border-radius: 5px;
   padding: 10px 15px;
@@ -11,9 +11,13 @@
   transition: box-shadow 0.2s ease-in-out;
 }
 
+.ListItem > * {
+  flex: 1 1 100%;
+}
+
 .ListItem:hover {
   cursor: pointer;
-  box-shadow: 0 0 15px -2px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px -2px rgba(0, 0, 0, 0.2);
   transform: scale(1.02);
 }
 
@@ -34,23 +38,35 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* width: 200px; */
-  flex: 0 0 200px;
+  max-width: 30%;
+  min-width: 9rem;
+  gap: 1rem;
+}
+
+.ListItem-RGroup > * {
+  flex-shrink: 0;
 }
 
 .ListItem-LGroup {
   display: flex;
-  /* overflow: hidden; */
-  flex: 1;
   min-width: 0;
 }
 
+.ListItem-DragBtn {
+  display: flex;
+  align-items: center;
+  flex-grow: 0;
+}
+
+.ListItem-LGroup > *:not(.ListItem-DragBtn) {
+  flex: 1 1 100%;
+}
+
 .ListItem-Info {
-  min-width: 0px;
+  width: 0;
 }
 
 .ListItem-Info h3 {
-  /* width: 100px; */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

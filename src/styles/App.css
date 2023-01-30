@@ -1,17 +1,33 @@
 .App-container {
-  padding: 15px;
   width: 100%;
   max-width: 1000px;
   height: 100%;
   margin: 0 auto;
-  /* border: 1px solid red; */
 
   display: grid;
-  grid-template-columns: minmax(200px, 300px) minmax(400px, 100%);
-  grid-template-rows: 70px auto 1fr;
+  grid-template-rows: 70px auto auto 1fr;
   grid-template-areas:
-    "header header"
-    "title title"
-    "sidebar main";
+    'header header'
+    'title title'
+    'sidebar sidebar'
+    'main main';
   gap: 15px 30px;
+}
+
+@media (min-width: 320px) {
+  .App-container {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 760px) {
+  .App-container {
+    grid-template-columns: minmax(200px, 300px) minmax(400px, 100%);
+
+    grid-template-rows: 70px auto 1fr;
+    grid-template-areas:
+      'header header'
+      'title title'
+      'sidebar main';
+  }
 }

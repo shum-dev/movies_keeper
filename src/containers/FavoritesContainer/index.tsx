@@ -23,10 +23,10 @@ export const FavoritesContainer: FC = () => {
 
     if (term && type) {
       result = favorites
-        .filter((item) => item.Title.toLowerCase().startsWith(term.toLowerCase()))
+        .filter((item) => item.Title.toLowerCase().includes(term.toLowerCase()))
         .filter((item) => item.Type === type);
     } else if (term) {
-      result = favorites.filter((item) => item.Title.toLowerCase().startsWith(term.toLowerCase()));
+      result = favorites.filter((item) => item.Title.toLowerCase().includes(term.toLowerCase()));
     } else if (type) {
       result = favorites.filter((item) => item.Type === type);
     }

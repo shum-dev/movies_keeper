@@ -10,13 +10,7 @@ export const Header: FC = () => {
       <NavLink exact to="/" activeClassName="Header-link_active" className="Header-link">
         Movies Keeper
       </NavLink>
-      <NavLink
-        exact
-        to="/favorite"
-        activeClassName="Header-link_active"
-        className="Header-link"
-        style={{ width: 190 }}
-      >
+      <NavLink exact to="/favorite" activeClassName="Header-link_active" className="Header-link">
         <StarIcon width={25} height={25} borderColor="white" />
         <span style={{ marginTop: 3 }}>Starred Movies</span>
       </NavLink>

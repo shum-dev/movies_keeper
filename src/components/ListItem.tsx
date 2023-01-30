@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { SearchItem } from '../api/index';
 import PosterPlaceholder from '../assets/poster-placeholder.png';
 import { StarIcon } from '../assets/icons/StarIcon';
@@ -21,7 +21,7 @@ export const ListItem = React.forwardRef<HTMLLIElement, ListItem>(
     <li className="ListItem" onClick={onItemClick} ref={ref} {...draggable?.draggableProps}>
       <div className="ListItem-LGroup">
         {draggable && (
-          <div {...draggable?.dragHandProps}>
+          <div className="ListItem-DragBtn" {...draggable?.dragHandProps}>
             <HamburgerIcon
               width={50}
               height={50}
@@ -37,6 +37,7 @@ export const ListItem = React.forwardRef<HTMLLIElement, ListItem>(
           <div>Year: {Year}</div>
         </div>
       </div>
+
       <div className="ListItem-RGroup">
         <img className="ListItem-Poster" src={Poster === 'N/A' ? PosterPlaceholder : Poster} />
         <StarIcon
